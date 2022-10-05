@@ -62,4 +62,70 @@ buttonsContainer.append(plusBtn);
 plusBtn.className = "btn plus-btn";
 plusBtn.innerHTML = "+";
 
-// let's 
+// +100/-100 buttons
+const minus100Btn = document.createElement("button");
+buttonsContainer.append(minus100Btn);
+minus100Btn.className = "btn";
+minus100Btn.innerHTML = "-100";
+
+const plus100Btn = document.createElement("button");
+buttonsContainer.append(plus100Btn);
+plus100Btn.className = "btn";
+plus100Btn.innerHTML = "+100"; 
+
+// let's make the counter works
+let result = 0; //number that will be displayed
+minusBtn.addEventListener("click", decreaseResult);
+resetBtn.addEventListener("click", resetResult);
+plusBtn.addEventListener("click", increaseResult);
+minus100Btn.addEventListener("click", decrease100Result);
+plus100Btn.addEventListener("click", increase100Result);
+
+function decreaseResult() {
+    result--;
+    displayResult();
+}
+function resetResult() {
+    result = 0;
+    displayResult();
+}
+function increaseResult() {
+    result++;
+    displayResult();
+}
+function decrease100Result() {
+    result -= 100;
+    displayResult();
+}
+function increase100Result() {
+    result += 100;
+    displayResult();
+}
+function displayResult() {
+    if (result >= 0) {
+        slot1.innerHTML = "+";
+        let tenK = result / 10000;
+        slot2.innerHTML = Math.floor(tenK);
+        let k = (result % 10000) / 1000;
+        slot3.innerHTML = Math.floor(k);
+        let hundred = ((result % 10000) % 1000) / 100;
+        slot4.innerHTML = Math.floor(hundred);
+        let ten = (((result % 10000) % 1000) % 100) / 10;
+        slot5.innerHTML = Math.floor(ten);
+        let unit = (((result % 10000) % 1000) % 100) % 10;
+        slot6.innerHTML = Math.floor(unit);
+    } else {
+        slot1.innerHTML = "-";
+        let tenK = result / 10000;
+        slot2.innerHTML = Math.ceil(tenK) * (-1);
+        let k = (result % 10000) / 1000;
+        slot3.innerHTML = Math.ceil(k) * (-1);
+        let hundred = ((result % 10000) % 1000) / 100;
+        slot4.innerHTML = Math.ceil(hundred) * (-1);
+        let ten = (((result % 10000) % 1000) % 100) / 10;
+        slot5.innerHTML = Math.ceil(ten) * (-1);
+        let unit = (((result % 10000) % 1000) % 100) % 10;
+        slot6.innerHTML = Math.ceil(unit) * (-1);
+    }
+
+}

@@ -10,6 +10,7 @@ body {
     justify-content: space-around;
     font-family: $font-family;
     font-size: 20px;
+    overflow: hidden;
 }
 
 .heading {
@@ -75,6 +76,7 @@ body {
 
 .buttons-container {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
@@ -104,4 +106,5 @@ body {
 
 .reset-btn {
     width: 120px;
+    font-weight: 300;
 }
