@@ -62,11 +62,16 @@ buttonsContainer.append(plusBtn);
 plusBtn.className = "btn plus-btn";
 plusBtn.innerHTML = "+";
 
-// +100/-100 buttons
+// +100/-100 and random buttons
 const minus100Btn = document.createElement("button");
 buttonsContainer.append(minus100Btn);
 minus100Btn.className = "btn";
 minus100Btn.innerHTML = "-100";
+
+const randomBtn = document.createElement("button");
+buttonsContainer.append(randomBtn);
+randomBtn.className = "btn random-btn";
+randomBtn.innerHTML = ".random.";
 
 const plus100Btn = document.createElement("button");
 buttonsContainer.append(plus100Btn);
@@ -74,32 +79,51 @@ plus100Btn.className = "btn";
 plus100Btn.innerHTML = "+100"; 
 
 // let's make the counter works
-let result = 0; //number that will be displayed
+let result = 0; // number that will be displayed
 minusBtn.addEventListener("click", decreaseResult);
 resetBtn.addEventListener("click", resetResult);
 plusBtn.addEventListener("click", increaseResult);
 minus100Btn.addEventListener("click", decrease100Result);
+randomBtn.addEventListener("click", randomNumber);
 plus100Btn.addEventListener("click", increase100Result);
 
 function decreaseResult() {
-    result--;
-    displayResult();
+    if (result > -99999) {
+        result--;
+        displayResult();
+    }
 }
 function resetResult() {
     result = 0;
     displayResult();
 }
 function increaseResult() {
-    result++;
-    displayResult();
+    if (result < 99999) {
+        result++;
+        displayResult();
+    }
 }
 function decrease100Result() {
-    result -= 100;
+    if (result > -99899){
+        result -= 100;
+        displayResult();
+    } else {
+        result = -99999;
+        displayResult();
+    }
+}
+function randomNumber() {
+    result = Math.floor(Math.random() * (99999 - (-99999)) + (-99999)); // Math.floor(Math.random() * (max - min) + min)
     displayResult();
 }
 function increase100Result() {
-    result += 100;
-    displayResult();
+    if (result < 99899){
+        result += 100;
+        displayResult();
+    } else {
+        result = 99999;
+        displayResult();
+    }
 }
 function displayResult() {
     if (result >= 0) {
@@ -127,5 +151,12 @@ function displayResult() {
         let unit = (((result % 10000) % 1000) % 100) % 10;
         slot6.innerHTML = Math.ceil(unit) * (-1);
     }
+}
 
+// let's enable the dblclick default event of buttons on touch screens
+const btns = document.querySelectorAll(".btn");
+for (let btn of btns) {
+    btn.addEventListener("dblclick", e => {
+        e.preventDefault();
+    })
 }

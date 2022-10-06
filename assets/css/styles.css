@@ -7,20 +7,20 @@
 @keyframes active-button {
   0% {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5), inset 5px 5px 10px rgba(230, 230, 230, 0.5), inset -5px -5px 10px rgba(0, 0, 0, 0.5);
-    font-size: 1em;
+    font-size: .9em;
     background-color: #4F7FE7;
   }
   33% {
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5), inset 3px 3px 7px rgba(230, 230, 230, 0.5), inset -3px -3px 7px rgba(0, 0, 0, 0.5);
-    font-size: .98em;
+    font-size: .88em;
   }
   66% {
     box-shadow: 0 0 0 rgba(0, 0, 0, 0.5), inset 0 0 5px rgba(230, 230, 230, 0.5), inset 0 0 5px rgba(0, 0, 0, 0.5);
-    font-size: .97em;
+    font-size: .87em;
   }
   100% {
     box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5), inset -2px -2px 5px rgba(230, 230, 230, 0.5);
-    font-size: .95em;
+    font-size: .85em;
     background-color: #7ca0ed;
   }
 }
@@ -113,7 +113,7 @@ body {
   width: 80px;
   height: 40px;
   font-family: "Poppins", sans-serif;
-  font-size: 1em;
+  font-size: .9em;
   background-color: #4F7FE7;
   border: none;
   border-radius: 10px;
@@ -125,11 +125,13 @@ body {
 .btn:active {
   box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5), inset -2px -2px 5px rgba(230, 230, 230, 0.5);
   background-color: #7ca0ed;
-  font-size: .95em;
+  font-size: .85em;
   animation: active-button 0.1s ease;
 }
 
-.reset-btn {
+.reset-btn,
+.random-btn {
   width: 120px;
   font-weight: 300;
+  font-size: .9em;
 }
