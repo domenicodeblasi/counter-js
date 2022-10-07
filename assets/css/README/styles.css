@@ -1,0 +1,13 @@
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+img {
+    width: 300px;
+    margin-top: 20px;
+}
+
+h2 {
+    padding-top: 5px;
+}
